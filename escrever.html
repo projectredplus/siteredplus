@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedPlus</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="js.js"></script>
+    <link href="index.html" />
+    <link href="redaçoes.html" />
+    <link href="escrever.html" />
+    <link href="atividades.html" />
+    <link href="temas.html" />
+    <link href="desafiosmensais.html" />
+    <link href="areadoaluno.html" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="menu" class="sidenav">
+                <a href="index.html"><i class="fas fa-home"></i> Início</a>
+                <a href="redacoes.html"><i class="fas fa-feather-alt"></i> Redações Nota Mil</a>
+                <a href="escrever.html"><i class="fas fa-edit"></i> Escrever</a>
+                <a href="atividades.html"><i class="fas fa-tasks"></i> Atividades</a>
+                <a href="temas.html"><i class="fas fa-book"></i> Temas</a>
+                <a href="desafiosmensais.html"><i class="fas fa-trophy"></i> Desafios Mensais</a>
+                <a href="areadoaluno.html"><i class="fas fa-user"></i> Área do Aluno</a>
+            </div>
+            <a class="logo">
+                <img src="images/logo.png" alt="RedPlus" />
+            </a>
+            <h1 class="titulobarra">ESCREVER</h1>
+            <span class="toggle-button" onclick="toggleMenu()">&#9776;</span>
+        </nav>
+    </header>
+    <div class="corpo">
+        <div class="card2">
+            <div class="container">
+                <h1 id="timer">00:00:00</h1>
+                <button id="startBtn" class="btn">Iniciar</button>
+                <button id="pauseBtn" class="btn" disabled>Pausar</button>
+                <button id="resetBtn" class="btn" disabled>Reiniciar</button>
+                <textarea id="notes" placeholder="Digite sua redação aqui"></textarea>
+                <button id="correctionBtn" class="btn" style="display: none;">Corrigir na Glau</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quem somos?</h4>
+                    <ul>
+                        <li class="somos">Olá RedPlusers! Nós somos uma equipe dedicada a desenvolver uma plataforma
+                            especializada em ajudar vocês, estudantes, em uma área específica: a redação para o
+                            Enem.<br> Nosso objetivo é fornecer um ambiente de aprendizado abrangente e eficaz, onde
+                            vocês possam aprimorar suas habilidades de escrita, conquistar confiança e obter melhores
+                            resultados na tão importante prova do Enem.</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#">App</a></li>
+                        <li><a href="#">Site</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/redplus.oficial_/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        var timerInterval;
+        var seconds = 0, minutes = 0, hours = 0;
+        var isTimerRunning = false;
+
+        function startTimer() {
+            if (!isTimerRunning) {
+                timerInterval = setInterval(updateTimer, 1000);
+                document.getElementById("startBtn").disabled = true;
+                document.getElementById("pauseBtn").disabled = false;
+                document.getElementById("resetBtn").disabled = false;
+                isTimerRunning = true;
+            }
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            document.getElementById("startBtn").disabled = false;
+            document.getElementById("pauseBtn").disabled = true;
+            document.getElementById("notes").style.display = "block";
+            document.getElementById("correctionBtn").style.display = "inline-block";
+            isTimerRunning = false;
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+            document.getElementById("timer").textContent = "00:00:00";
+            document.getElementById("startBtn").disabled = false;
+            document.getElementById("pauseBtn").disabled = true;
+            document.getElementById("resetBtn").disabled = true;
+            document.getElementById("notes").style.display = "none";
+            document.getElementById("correctionBtn").style.display = "none";
+            isTimerRunning = false;
+        }
+
+        function updateTimer() {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+
+            var timeString =
+                (hours ? (hours > 9 ? hours : "0" + hours) : "00") +
+                ":" +
+                (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+                ":" +
+                (seconds > 9 ? seconds : "0" + seconds);
+
+            document.getElementById("timer").textContent = timeString;
+        }
+
+        function goToGlawCorrection() {
+            var text = document.getElementById("notes").value;
+            var glawUrl = "https://app.glau.com.vc/aluno/praticar/nova-redacao" + encodeURIComponent(text);
+            window.open(glawUrl, "_blank");
+        }
+
+        document.getElementById("startBtn").addEventListener("click", startTimer);
+        document.getElementById("pauseBtn").addEventListener("click", pauseTimer);
+        document.getElementById("resetBtn").addEventListener("click", resetTimer);
+        document.getElementById("correctionBtn").addEventListener("click", goToGlawCorrection);
+    </script>
+</body>
+
+</html>

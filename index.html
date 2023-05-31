@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RedPlus</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="js.js"></script>
+    <link href="index.html" />
+    <link href="redaçoes.html" />
+    <link href="escrever.html" />
+    <link href="atividades.html" />
+    <link href="temas.html" />
+    <link href="desafiosmensais.html" />
+    <link href="areadoaluno.html" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="menu" class="sidenav">
+                <a href="index.html"><i class="fas fa-home"></i> Início</a>
+                <a href="redacoes.html"><i class="fas fa-feather-alt"></i> Redações Nota Mil</a>
+                <a href="escrever.html"><i class="fas fa-edit"></i> Escrever</a>
+                <a href="atividades.html"><i class="fas fa-tasks"></i> Atividades</a>
+                <a href="temas.html"><i class="fas fa-book"></i> Temas</a>
+                <a href="desafiosmensais.html"><i class="fas fa-trophy"></i> Desafios Mensais</a>
+                <a href="areadoaluno.html"><i class="fas fa-user"></i> Área do Aluno</a>
+            </div>
+            <a class="logo">
+                <img src="images/logo.png" alt="RedPlus" />
+            </a>
+            <h1 class="titulobarra">INÍCIO</h1>
+            <span class="toggle-button" onclick="toggleMenu()">&#9776;</span>
+        </nav>
+    </header>
+
+    <main>
+        <div id="conteudo">
+            <input type="text" id="nome" placeholder="Digite o seu nome">
+            <button id="botao" onclick="mostrarMensagem()">Enviar</button>
+            <p id="mensagem"></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+                        <li><a href="#">bag</a></li>
+                        <li><a href="#">shoes</a></li>
+                        <li><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+ 
+    
+</body>
+
+</html>
