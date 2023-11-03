@@ -1,85 +1,112 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE HTML>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RedPlus</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script src="js.js"></script>
-    <link href="index.html" />
-    <link href="redaçoes.html" />
-    <link href="escrever.html" />
-    <link href="atividades.html" />
-    <link href="temas.html" />
-    <link href="desafiosmensais.html" />
-    <link href="areadoaluno.html" />
-</head>
+<html>
+	<head>
+		<title>RedPlus</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="./assets/css/common.css">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
 
-<body>
-    <header>
-        <nav>
-            <div id="menu" class="sidenav">
-                <a href="index.html"><i class="fas fa-home"></i> Início</a>
-                <a href="redacoes.html"><i class="fas fa-feather-alt"></i> Redações Nota Mil</a>
-                <a href="escrever.html"><i class="fas fa-edit"></i> Escrever</a>
-                <a href="atividades.html"><i class="fas fa-tasks"></i> Atividades</a>
-                <a href="temas.html"><i class="fas fa-book"></i> Temas</a>
-                <a href="desafiosmensais.html"><i class="fas fa-trophy"></i> Desafios Mensais</a>
-                <a href="areadoaluno.html"><i class="fas fa-user"></i> Área do Aluno</a>
-            </div>
-            <a class="logo">
-                <img src="images/logo.png" alt="RedPlus" />
-            </a>
-            <h1 class="titulobarra">INÍCIO</h1>
-            <span class="toggle-button" onclick="toggleMenu()">&#9776;</span>
-        </nav>
-    </header>
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">RedPlus</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Início</a></li>
+							<li>
+								<a href="#">Treinamento</a>
+								<ul>
+									<li><a href="estudos.html">Estudos</a></li>
+									<li><a href="desafios.html">Desafios</a></li>
+									<li><a href="temas.html">Temas</a></li>
+									<li><a href="redacao.html">Redações</a></li>
+								</ul>
+							</li>
+							<li><a href="areadoaluno.html" class="button secundary">Área do Aluno</a></li>
+							<li><a href="escrever.html" class="button primary">Escrever</a></li>
+						</ul>
+					</nav>
+				</header>
 
-    <main>
-        <div id="conteudo">
-            <input type="text" id="nome" placeholder="Digite o seu nome">
-            <button id="botao" onclick="mostrarMensagem()">Enviar</button>
-            <p id="mensagem"></p>
-        </div>
-    </main>
+			<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<header>
+						<h2 class="slogan">RedPlus</h2>
+						<p>"O uso das tecnologias aliadas ao ensino de redação, rumo à nota máxima!"</p>
+						<button onclick="sair()">Terminar sessão</button>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Quem somos?</h4>
-                    <ul>
-                        <li class="somos">• Olá RedPlusers! Nós Somos Uma Equipe Dedicada A Desenvolver Uma Plataforma
-                            De suporte para estudo de Redação Para O Enem. Nosso Objetivo É Fornecer Um Ambiente De
-                            Aprendizado Abrangente E Eficaz, Onde Vocês Possam Aprimorar Suas Habilidades De Escrita,
-                            Conquistar Confiança E Obter Melhores Resultados No Tão Importante Exame Nacional do ensino
-                            médio - Enem.</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Produtos</h4>
-                    <ul>
-                        <li><a href="https://expo.dev/artifacts/eas/6Q1w2WdKsoBH1xhZiFvMNm.apk">App</a></li>
-                        <li><a href="https://projectredplus.github.io/siteredplus/">Site</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Redes Sociais</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/redplus.oficial_/"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+					</header>
+					<span class="image"><img src="images/logo.png" alt="redacao" /></span>
+				</div>
+				<a href="#one" class="goto-next scrolly">Next</a><br> 
+            </section>
 
+		<!-- One -->
+			<section id="one" class="spotlight style1 bottom">
+				<span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
+				<div class="content">
+					<div class="container">
+						<div class="row">
+							<div class="col-4 col-12-medium">
+								<header>
+									<h2>Bem-vindos ao RedPlus!</h2>
+								</header>
+							</div>
+							<div class="col-4 col-12-medium">
+								<p>Estamos entusiasmados por tê-los aqui, prontos para ajudar a aprimorar suas habilidades de redação e conquistar seus objetivos no ENEM. </p>
+							</div>
+							<div class="col-4 col-12-medium">
+								<p>Oferecemos uma jornada única e valiosa, repleta de recursos de qualidade, dicas e orientações para guiá-los no caminho do sucesso. Aproveitem ao máximo as ferramentas que disponibilizamos gratuitamente e estejam à vontade para explorar e aprender. Desejamos a todos uma experiência enriquecedora e produtiva em nosso espaço dedicado à escrita e ao aprendizado.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="#two" class="goto-next scrolly">Next</a>
+			</section>
 
+		<!-- Two -->
+			<section id="two" class="spotlight style2 right">
+				<span class="images">
+					<img class="image" src="./images/feedbacks.png" alt="" />
+					<img class="image" src="./images/feedbacks_meninos.png" alt="">
+				</span>
+				<div class="content">
+					<header>
+						<h2>Feedbacks</h2>
+						<p>Veja ao lado algumas avaliações sobre o projeto.</p>
+					</header>
+				</div>
+				<a href="#three" class="goto-next scrolly">Next</a>
+			</section>
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.instagram.com/redplus.oficial_/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://l.instagram.com/?u=http%3A%2F%2Fgmail.com%2F&e=AT10U9qVBDIzYsyn8dQqsgU1KUHCTSCryl11EK0rAJdBtfSNkKpaB13x1hzX9HXEgdz_zUiLW34txAyKOLk0NgU-10J_kRErK1U6TgI" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; RedPLus todos os direitos reservados.</li>
+				</ul>
+			</footer>
+
+	</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script src="assets/js/index.js"></script>
 </body>
-
 </html>
