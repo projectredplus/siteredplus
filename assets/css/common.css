@@ -1,55 +1,72 @@
-.btn-container {
-    background-color: rgba(39, 40, 51, 0.965);
-    display: flex;
-    align-items: center;
-    padding: 12px;
+#banner::after {
+  background-image: url("./images/bgg.png");
+}
+#banner .slogan {
+  font-weight: 900;
+  color: black;
+}
+
+#banner p {
     font-weight: 500;
-    border-radius: 12px;
-    border: 1px solid rgba(66, 68, 87, 0.965);
-    margin: 4px;
+    color: black;
+}
+
+.btn-2 {
+    background-color: #e28205;
+}
+
+.btn-container {
+  background-color: rgba(39, 40, 51, 0.965);
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  font-weight: 500;
+  border-radius: 12px;
+  border: 1px solid rgba(66, 68, 87, 0.965);
+  margin: 4px;
 }
 
 .btn-container div {
-    margin-left: auto;
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    justify-content: end;
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: end;
 }
 
 .btn-container a {
-    text-decoration: none !important;
-    background-color: #4CAF50;
-    color: white;
-    font-weight: 500;
-    border-radius: 320px;
-    text-decoration: none !important;
-    border: 0;
-    padding: 4px 20px;
-    transition: 200ms;
+  text-decoration: none !important;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+  border-radius: 320px;
+  text-decoration: none !important;
+  border: 0;
+  padding: 4px 20px;
+  transition: 200ms;
 }
 
 .btn-container a:hover {
-    background-color: #39833c;
-    color: white !important;
+  background-color: #39833c;
+  color: white !important;
 }
 
 .images {
-    display: flex;
-    transform: translateY(-100%) translateX(10%);
+  display: flex;
+  transform: translateY(-100%) translateX(10%);
 }
 
 .image {
-    width: 500px;
+  width: 500px;
 }
 
 @media screen and (max-width: 980px) {
-    .images {
-        display: flex;
-        transform: translateY(-0%) translateX(0%);
-    }
-    
-    .image {
-        width: 500px;
-    }
+  .images {
+    display: flex;
+    transform: translateY(-0%) translateX(0%);
+  }
+
+  .image {
+    width: 500px;
+  }
 }

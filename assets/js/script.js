@@ -18,6 +18,7 @@ yearSelect.addEventListener("change", function() {
 
         const buttonText = document.createTextNode("Ver Redação");
         const cardButton = document.createElement("button");
+        cardButton.classList.add("btn");
         cardButton.appendChild(buttonText);
         
         card.appendChild(cardButton);
