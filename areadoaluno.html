@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>RedPlus</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">RedPlus</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Início</a></li>
+							<li>
+								<a href="#">Treinamento</a>
+								<ul>
+									<li><a href="estudos.html">Estudos</a></li>
+									<li><a href="desafios.html">Desafios</a></li>
+									<li><a href="temas.html">Temas</a></li>
+									<li><a href="redacao.html">Redações</a></li>
+								</ul>
+							</li>
+							<li><a href="areadoaluno.html" class="button secundary">Área do Aluno</a></li>
+							<li><a href="escrever.html" class="button primary">Escrever</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Area do aluno -->
+		
+                <div class="upload-container">
+                    <div id="preview" class="upload-icon"></div>
+                    <label for="file-input" class="upload-iconmais"><i class="fas fa-plus-circle"></i></label>
+                    <input type="file" id="file-input" accept="image/*" />
+                    <div id="nome"></div>
+                </div>
+                <div class="container">
+                    <h1 class="organize">Organize seu cronograma</h1>
+            
+                    <form id="schedule-form">
+                        <div>
+                            <label for="date-input">Data:</label>
+                            <input type="text" id="date-input" name="date-input">
+                        </div>
+            
+                        <div>
+                            <label for="content-input">Conteúdo:</label>
+                            <input type="text" id="content-input" name="content-input">
+                        </div>
+            
+                        <div>
+                            <label for="link-input">Link arquivo:</label>
+                            <input type="text" id="link-input" name="link-input">
+                        </div>
+            
+                        <div>
+                            <label for="video-input">Link vídeo:</label>
+                            <input type="text" id="video-input" name="video-input">
+                        </div>
+            
+                        <button class="botao" type="button" onclick="addEntry()">Adicionar</button>
+                    </form>
+            
+                    <table id="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Conteúdo</th>
+                                <th>Arquivo</th>
+                                <th>Vídeo</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+          <!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.instagram.com/redplus.oficial_/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://l.instagram.com/?u=http%3A%2F%2Fgmail.com%2F&e=AT10U9qVBDIzYsyn8dQqsgU1KUHCTSCryl11EK0rAJdBtfSNkKpaB13x1hzX9HXEgdz_zUiLW34txAyKOLk0NgU-10J_kRErK1U6TgI" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; RedPLus todos os direitos reservados.</li>
+				</ul>
+			</footer>
+
+	</div>
+		<!-- Scripts -->               
+        <script>
+                    // Carregar dados salvos do armazenamento local
+                    window.addEventListener('load', function () {
+                        const scheduleData = JSON.parse(localStorage.getItem('scheduleData')) || [];
+                        renderScheduleData(scheduleData);
+                    });
+            
+                    function addEntry() {
+                        const dateInput = document.getElementById("date-input").value;
+                        const contentInput = document.getElementById("content-input").value;
+                        const linkInput = document.getElementById("link-input").value;
+                        const videoInput = document.getElementById("video-input").value;
+            
+                        const entry = {
+                            date: dateInput,
+                            content: contentInput,
+                            link: linkInput,
+                            video: videoInput
+                        };
+            
+                        let scheduleData = JSON.parse(localStorage.getItem('scheduleData')) || [];
+                        scheduleData.push(entry);
+            
+                        localStorage.setItem('scheduleData', JSON.stringify(scheduleData));
+            
+                        renderScheduleData(scheduleData);
+            
+                        document.getElementById("date-input").value = '';
+                        document.getElementById("content-input").value = '';
+                        document.getElementById("link-input").value = '';
+                        document.getElementById("video-input").value = '';
+                    }
+            
+                    function renderScheduleData(data) {
+                        const table = document.getElementById("schedule-table").getElementsByTagName('tbody')[0];
+                        table.innerHTML = '';
+            
+                        for (let i = 0; i < data.length; i++) {
+                            const entry = data[i];
+            
+                            const newRow = table.insertRow();
+            
+                            const dateCell = newRow.insertCell();
+                            const contentCell = newRow.insertCell();
+                            const linkCell = newRow.insertCell();
+                            const videoCell = newRow.insertCell();
+                            const removeCell = newRow.insertCell();
+            
+                            dateCell.textContent = entry.date;
+                            contentCell.textContent = entry.content;
+            
+                            const linkBtn = document.createElement('a');
+                            linkBtn.classList.add('link-btn');
+                            linkBtn.href = entry.link;
+                            linkBtn.target = "_blank";
+                            linkBtn.textContent = 'Link';
+                            linkCell.appendChild(linkBtn);
+            
+                            const videoBtn = document.createElement('button');
+                            videoBtn.classList.add('video-btn');
+                            videoBtn.textContent = 'Vídeo';
+                            videoBtn.addEventListener('click', function () {
+                                openVideo(entry.video);
+                            });
+                            videoCell.appendChild(videoBtn);
+            
+                            const removeBtn = document.createElement('button');
+                            removeBtn.classList.add('remove-btn');
+                            removeBtn.textContent = 'Remover';
+                            removeBtn.addEventListener('click', function () {
+                                removeEntry(newRow, i);
+                            });
+                            removeCell.appendChild(removeBtn);
+                        }
+                    }
+            
+                    function openVideo(url) {
+                        window.open(url);
+                    }
+            
+                    function removeEntry(row, index) {
+                        let scheduleData = JSON.parse(localStorage.getItem('scheduleData')) || [];
+                        scheduleData.splice(index, 1);
+            
+                        localStorage.setItem('scheduleData', JSON.stringify(scheduleData));
+            
+                        const table = document.getElementById("schedule-table").getElementsByTagName('tbody')[0];
+                        table.removeChild(row);
+                    }
+                    /*foto*/
+                    document.getElementById('file-input').addEventListener('change', function (event) {
+                        var file = event.target.files[0];
+                        var reader = new FileReader();
+            
+                        reader.onload = function (e) {
+                            var preview = document.getElementById('preview');
+                            preview.style.backgroundImage = 'url(' + e.target.result + ')';
+                            preview.innerHTML = '';
+                        };
+            
+                        reader.readAsDataURL(file);
+                    });
+            
+                    function mostrarMensagem() {
+                        var nome = document.getElementById("nome").value;
+                        if (nome !== "") {
+                            document.getElementById("conteudo").classList.add("ocultar");
+                            document.getElementById("nome").style.display = "none";
+                            document.getElementById("botao").style.display = "none";
+                            document.getElementById("nome").innerHTML = "Seja bem-vindo(a), " + nome + "!";
+                        }
+                    }
+            
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Verifica se há um caminho de imagem armazenado localmente
+                        var imagePath = localStorage.getItem('selectedImagePath');
+                        if (imagePath) {
+                            var preview = document.getElementById('preview');
+                            preview.style.backgroundImage = 'url(' + imagePath + ')';
+                        }
+            
+                        // Evento disparado quando o usuário seleciona uma imagem
+                        document.getElementById('file-input').addEventListener('change', function (event) {
+                            var file = event.target.files[0];
+                            var reader = new FileReader();
+            
+                            reader.onload = function (e) {
+                                var preview = document.getElementById('preview');
+                                preview.style.backgroundImage = 'url(' + e.target.result + ')';
+                                preview.innerHTML = '';
+            
+                                // Armazena o caminho da imagem selecionada localmente
+                                localStorage.setItem('selectedImagePath', e.target.result);
+                            };
+            
+                            reader.readAsDataURL(file);
+                        });
+                    });
+            
+                </script>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
